@@ -1,0 +1,397 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "5a30e753-d1a9-417f-ae12-1ecbdd570e55",
+   "metadata": {},
+   "source": [
+    "#### 1) Write a function greet that takes two arguments: name (a string) and greeting (a string with a default value of \"Hello\"). The function should return a greeting message."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "0a398065-531f-4aee-bbe4-70d00d2d7329",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def greet(name,greeting):\n",
+    "    return f\"hello {name}, {greeting}\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "99e19294-6afe-4c29-8f79-cd0f66b932df",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'hello bob, Good Morning'"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "greet(\"bob\",\"Good Morning\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "63f12e30-9bd7-4af8-ba9b-b6033106a0b0",
+   "metadata": {},
+   "source": [
+    "#### 2) Create a function create_profile that takes arguments for name, age, and city as named arguments. The function should return a string like \"Name: Alice, Age: 25, City: New York\". Ensure that the age argument has a default value of 18."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "27dcb07e-8cc3-4824-9b9a-650bd0505f15",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def create_profile(name, city,age=18):\n",
+    "    return f\"Name: {name}, Age: {age}, City: {city}\"\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "1c2b2094-bf77-4afa-95fa-323bc16e1cd7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Name: Alice, Age: 18, City: New York'"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "create_profile(\"Alice\", \"New York\" )"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "50b4adb6-ff98-4e38-9793-8838d5effd1b",
+   "metadata": {},
+   "source": [
+    "#### 3) Write a function sum_numbers that takes any number of positional arguments (args) and keyword arguments (*kwargs). It should:\n",
+    "\n",
+    "- Return the sum of all *args if they are numbers.\n",
+    "\n",
+    "- Return a dictionary of all keyword arguments."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "b1e57758-3a2c-4d5a-8413-0bb1c94c17fd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def sum_numbers(*args,**kwargs):\n",
+    "    # taking the sum of only positional argument\n",
+    "    sums=sum(arg for arg in args if isinstance(arg, (int, float)))\n",
+    "    return sums, kwargs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "556a7d8f-4a3a-42c3-8eb0-e157feaf4e5b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(27, {'x': 5, 'y': 6})"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum_numbers(6,5,8,8,x=5,y=6)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b799a503-fef0-4d08-aec0-be4c1e59622c",
+   "metadata": {},
+   "source": [
+    "#### 4) Write a function that uses map and a lambda to return a list where each element is squared."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "8d024117-bde1-48d2-9fa5-eb8822289374",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[4, 25, 36, 49]\n"
+     ]
+    }
+   ],
+   "source": [
+    "def square_list(numbers):\n",
+    "    return list(map(lambda x: x**2, numbers))\n",
+    "print(square_list([2,5,6,7]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "602fae34-1ee3-4f49-bbbf-a87f14b0975f",
+   "metadata": {},
+   "source": [
+    "#### 5) Write a function that filters out all odd numbers from a list using filter and a lambda function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "644b2526-ae31-4181-8643-f3f76c63641d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def odd_out(numbers):\n",
+    "    odd = list(filter(lambda x: x%2 !=0, numbers))\n",
+    "    print(odd)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "ad9ddf9c-975d-4149-8082-161e3c75facd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 3, 5]\n"
+     ]
+    }
+   ],
+   "source": [
+    "odd_out([1,2,3,44,5])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "15c26e6c-5a63-44db-8ad5-50b51c8147cc",
+   "metadata": {},
+   "source": [
+    "#### 6) Create a list comprehension that takes a list of numbers and returns a list of their squares."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "c0c943e1-a9f1-4ab7-bb1b-56fa32da3ae6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[4, 25, 36, 64, 81]\n"
+     ]
+    }
+   ],
+   "source": [
+    "numbers = [2,5,6,8,9]\n",
+    "\n",
+    "squares = [x**2 for x in numbers]\n",
+    "\n",
+    "print(squares)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1850e29c-bf6b-4e08-8059-ffff1d51e24c",
+   "metadata": {},
+   "source": [
+    "#### 7) Use a list comprehension to create a list of even numbers from 1 to 20."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "594b11c3-f748-4e5e-b4d6-d8481a580d07",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def even_out():\n",
+    "    even=[x for x in range(1, 21) if x % 2 == 0]\n",
+    "    return even"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "375417c5-1753-4542-b1b4-7a52ba51107e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "even_out()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "11a2eb8a-9316-43a9-b337-443181a5eee1",
+   "metadata": {},
+   "source": [
+    "#### 8) Write a function file_operations that creates a directory named \"test_folder\" using os.makedirs(). Then, pause the execution for 3 seconds using time.sleep(), and finally, delete the directory using os.rmdir()."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "0ceecb5f-4712-4604-9128-4ef4ed1a3c69",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "import time\n",
+    "\n",
+    "def file_operations():\n",
+    "    os.makedirs(\"test_folder\")\n",
+    "    time.sleep(3)\n",
+    "    os.rmdir(\"test_folder\")\n",
+    "file_operations()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ce705942-b3ec-4a7f-ab7d-ccf64a06b07f",
+   "metadata": {},
+   "source": [
+    "#### 9) Write a Python script that imports only sleep from the time module and renames it to pause. Use it to pause execution for 2 seconds and print \"Paused execution...\"."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "id": "272e25a8-ab60-4d4e-bd8e-714661d3c0ae",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Paused execution\n"
+     ]
+    }
+   ],
+   "source": [
+    "from time import sleep as pause\n",
+    "\n",
+    "pause(2)\n",
+    "print(\"Paused execution\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c31426cc-8e68-4bb9-b115-a072b7578b11",
+   "metadata": {},
+   "source": [
+    "#### 10) Write a recursive function flatten_list that can flatten a nested list of any depth using *args and **kwargs."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "8ae1faf9-dd28-4dd7-8fc1-a19aafa5e85e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "def flatten_list(*args, **kwargs):\n",
+    "    flat_list = []\n",
+    "    \n",
+    "    # Recursive helper function to flatten each element\n",
+    "    def flatten(item):\n",
+    "        if isinstance(item, list):\n",
+    "            for sub_item in item:\n",
+    "                flatten(sub_item)\n",
+    "        else:\n",
+    "            flat_list.append(item)\n",
+    "    \n",
+    "    # Flatten all the positional arguments\n",
+    "    for arg in args:\n",
+    "        flatten(arg)\n",
+    "\n",
+    "    \n",
+    "    return flat_list\n",
+    "\n",
+    "result = flatten_list([1, [2, 3, [4, 5], 6], 7, [8, [9, 10]]])\n",
+    "\n",
+    "print(result)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "776b94a9-a0b6-406d-bc96-8383028b52c1",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
